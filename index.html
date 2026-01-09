@@ -7,131 +7,243 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       background-color: #141414;
       color: white;
-      text-align: center;
     }
     h1 {
       color: #e50914;
+      text-align: center;
+      margin-top: 30px;
       font-size: 2.5em;
-      margin-top: 20px;
     }
     h2 {
-      font-size: 1.2em;
-      margin-bottom: 6px;
+      text-align: center;
+      font-size: 1.3em;
+      margin-top: 5px;
     }
-    .subtitle {
-      font-size: 1.1em;
-      color: white;
-      font-weight: bold;
-      margin: 4px;
-    }
-    .copyright {
-      font-size: 0.9em;
+    h3 {
+      text-align: center;
       color: #999;
-      margin-bottom: 20px;
+      margin-top: 5px;
+      font-size: 0.9em;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 40px;
       max-width: 1200px;
-      margin: auto;
+      margin: 0 auto;
     }
+
     .card {
-      background-color: #222;
-      padding: 10px;
-      border-radius: 10px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
       position: relative;
-      transition: transform 0.2s;
+      padding-bottom: 10px;
+      transition: transform 0.2s ease;
     }
+
     .card:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
+
     .card img {
       width: 100%;
-      border-radius: 5px;
-      object-fit: contain;
+      height: auto;
+      display: block;
     }
-    .top11 {
+
+    .title {
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.05em;
+      padding: 10px;
+    }
+
+    .badge-top {
       position: absolute;
       top: 8px;
       right: 8px;
-      background-color: red;
+      background-color: #e50914;
       color: white;
-      font-size: 0.75em;
-      padding: 2px 8px;
-      border-radius: 5px;
+      font-size: 0.8em;
+      padding: 4px 8px;
+      border-radius: 4px;
       font-weight: bold;
     }
-    .card-buttons {
-      margin-top: 10px;
+
+    .badges {
       display: flex;
       justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
+      margin-top: 6px;
     }
-    .btn {
-      font-size: 0.75em;
-      padding: 6px 10px;
-      border: none;
-      border-radius: 5px;
+
+    .badge {
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8em;
       font-weight: bold;
-      cursor: pointer;
     }
-    .btn-season {
-      background-color: red;
+
+    .past {
+      background-color: #e50914;
       color: white;
     }
-    .btn-watch {
+
+    .watch {
       background-color: white;
       color: black;
     }
+
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      .title {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
   <h1>모두의 EDUFLIX 1th</h1>
-  <div class="subtitle">에듀플릭스 오리지널</div>
-  <div class="copyright">Copyright © All Teachers</div>
+  <h2>에듀플릭스 오리지널</h2>
+  <h3>Copyright ⓒ All Teachers</h3>
 
   <div class="grid">
-    <!-- 예시 카드 시작 -->
+
+    <!-- 카드 반복 시작 -->
     <div class="card">
       <a href="https://course-advisor-p3412.replit.app/" target="_blank">
-        <img src="images/thumb_2022_과목상담기.png" alt="과목상담기" />
-        <div class="top11">TOP11</div>
+        <img src="images/thumb_2022_과목상담기.png" alt="2022 과목상담기"/>
+        <div class="badge-top">TOP11</div>
       </a>
-      <h2>2022 과목상담기</h2>
-      <div class="card-buttons">
-        <div class="btn btn-season">지난 시즌</div>
-        <a href="https://course-advisor-p3412.replit.app/" target="_blank">
-          <div class="btn btn-watch">지금 시청하기</div>
-        </a>
+      <div class="title">2022 과목상담기</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
       </div>
     </div>
 
-    <!-- 다른 카드들 복붙해서 수정 -->
     <div class="card">
-      <a href="https://park-sanggeun.github.io/curriculum-2025/">
-        <img src="images/thumb_2025_교과전형_배치표.png" alt="배치표" />
-        <div class="top11">TOP11</div>
+      <a href="https://park-sanggeun.github.io/curriculum-2025/" target="_blank">
+        <img src="images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표"/>
+        <div class="badge-top">TOP11</div>
       </a>
-      <h2>2025 교과전형 배치표</h2>
-      <div class="card-buttons">
-        <div class="btn btn-season">지난 시즌</div>
-        <a href="https://park-sanggeun.github.io/curriculum-2025/">
-          <div class="btn btn-watch">지금 시청하기</div>
-        </a>
+      <div class="title">2025 교과전형 배치표</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
       </div>
     </div>
 
-    <!-- 계속 추가 가능 -->
+    <div class="card">
+      <a href="https://drive.google.com/file/d/1SLywnHop7INLmBuoZNpss69ELGPqcWHj/view?usp=sharing" target="_blank">
+        <img src="images/thumb_2026_고등학교_학부모안내서.png" alt="2026 고등학교 안내서"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">2026 고등학교 학부모안내서</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://drive.google.com/file/d/1-_4AT8I0FWXaNzoYE7MLyB3X5mZ2hgRt/view?usp=sharing" target="_blank">
+        <img src="images/thumb_2026_중학교_학부모안내서.png" alt="2026 중학교 안내서"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">2026 중학교 학부모안내서</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://park-sanggeun.github.io/parents/" target="_blank">
+        <img src="images/thumb_2027_대입전형변경.png" alt="2027 대입전형 변경사항"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">2027 대입전형 변경사항</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://drive.google.com/file/d/1RNX0kzchJIUK8ftmLP__I443MoT5Mr7L/view?usp=sharing" target="_blank">
+        <img src="images/thumb_2027_대입정보119.png" alt="2027 대입정보119"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">2027 대입정보 119</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://drive.google.com/drive/u/0/folders/1TtcwmJYaisr21TAzmnuFKjJWdtE0Rf8B" target="_blank">
+        <img src="images/thumb_2028_반영과목_권장과목.png" alt="2028 반영과목 권장과목"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">2028 반영과목 / 권장과목</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://drive.google.com/file/d/1NuwW1vxeKL94fR8ISFzvJQtVlpzbaGJh/view?usp=sharing" target="_blank">
+        <img src="images/thumb_학부모_QnA100.png" alt="학부모 진로진학 QnA100"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">학부모 진로진학 Q&A 100선</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://sites.google.com/view/sresearch-topic-students/%ED%99%88" target="_blank">
+        <img src="images/thumb_탐구참고자료.png" alt="탐구 참고자료"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">탐구 참고자료</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://example.com" target="_blank">
+        <img src="images/thumb_수시3개년_TOWER.png" alt="수시 3개년 비교"/>
+        <div class="badge-top">TOP11</div>
+      </a>
+      <div class="title">수시 3개년 비교</div>
+      <div class="badges">
+        <div class="badge past">지난 시즌</div>
+        <div class="badge watch">지금 시청하기</div>
+      </div>
+    </div>
+    <!-- 카드 반복 끝 -->
+
   </div>
 </body>
 </html>
