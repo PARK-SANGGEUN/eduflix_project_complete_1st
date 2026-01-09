@@ -2,144 +2,136 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>모두의 EDUFLIX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>모두의 EDUFLIX 1th</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
-    header {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #141414;
+      color: white;
       text-align: center;
-      padding: 2rem 1rem 0.5rem 1rem;
     }
-    header h1 {
+    h1 {
       color: #e50914;
-      font-size: 2.5rem;
-      margin-bottom: 0.2rem;
+      font-size: 2.5em;
+      margin-top: 20px;
     }
-    header h2 {
-      color: #fff;
-      font-size: 1.2rem;
-      margin: 0.2rem 0;
+    h2 {
+      font-size: 1.2em;
+      margin-bottom: 6px;
     }
-    header h3 {
+    .subtitle {
+      font-size: 1.1em;
+      color: white;
+      font-weight: bold;
+      margin: 4px;
+    }
+    .copyright {
+      font-size: 0.9em;
       color: #999;
-      font-size: 0.9rem;
-      margin-top: 0.3rem;
+      margin-bottom: 20px;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
     }
     .card {
       background-color: #222;
-      border-radius: 8px;
-      overflow: hidden;
+      padding: 10px;
+      border-radius: 10px;
       position: relative;
-      text-align: center;
-      transition: transform 0.3s;
+      transition: transform 0.2s;
     }
     .card:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
     .card img {
       width: 100%;
-      height: auto;
-      display: block;
+      border-radius: 5px;
+      object-fit: contain;
     }
-    .card-title {
-      padding: 0.7rem;
-      font-size: 1rem;
-    }
-    .badge-top {
+    .top11 {
       position: absolute;
       top: 8px;
       right: 8px;
       background-color: red;
       color: white;
-      padding: 3px 6px;
-      font-size: 0.75rem;
+      font-size: 0.75em;
+      padding: 2px 8px;
+      border-radius: 5px;
       font-weight: bold;
-      border-radius: 4px;
     }
-    .badge-bottom {
-      margin-top: 0.3rem;
-      display: inline-block;
+    .card-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-size: 0.75em;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-season {
       background-color: red;
       color: white;
-      padding: 3px 8px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      border-radius: 4px;
+    }
+    .btn-watch {
+      background-color: white;
+      color: black;
     }
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>모두의 EDUFLIX 1th</h1>
-    <h2>에듀플릭스 오리지널</h2>
-    <h3>Copyright © All Teachers</h3>
-  </header>
-  <main class="grid">
-    <a class="card" href="https://course-advisor-p3412.replit.app/" target="_blank">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2022_과목상담기.png" alt="2022 과목상담기" />
-      <div class="card-title">2022 과목상담기</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표" />
-      <div class="card-title">2025 교과전형 배치표</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2026_고등학교_학부모안내서.png" alt="2026 고등학교 학부모안내서" />
-      <div class="card-title">2026 고등학교 학부모안내서</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2026_중학교_학부모안내서.png" alt="2026 중학교 학부모안내서" />
-      <div class="card-title">2026 중학교 학부모안내서</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2027_대입전형변경.png" alt="2027 대입전형 변경사항" />
-      <div class="card-title">2027 대입전형 변경사항</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2027_대입정보119.png" alt="2027 대입정보 119" />
-      <div class="card-title">2027 대입정보 119</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_2028_반영과목_권장과목.png" alt="2028 반영과목 / 권장과목" />
-      <div class="card-title">2028 반영과목 / 권장과목</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-    <a class="card" href="#">
-      <span class="badge-top">TOP11</span>
-      <img src="/images/thumb_수시3개년_TOWER.png" alt="수시 3개년 비교" />
-      <div class="card-title">수시 3개년 비교</div>
-      <div class="badge-bottom">지난 시즌</div>
-    </a>
-  </main>
+  <h1>모두의 EDUFLIX 1th</h1>
+  <div class="subtitle">에듀플릭스 오리지널</div>
+  <div class="copyright">Copyright © All Teachers</div>
+
+  <div class="grid">
+    <!-- 예시 카드 시작 -->
+    <div class="card">
+      <a href="https://course-advisor-p3412.replit.app/" target="_blank">
+        <img src="images/thumb_2022_과목상담기.png" alt="과목상담기" />
+        <div class="top11">TOP11</div>
+      </a>
+      <h2>2022 과목상담기</h2>
+      <div class="card-buttons">
+        <div class="btn btn-season">지난 시즌</div>
+        <a href="https://course-advisor-p3412.replit.app/" target="_blank">
+          <div class="btn btn-watch">지금 시청하기</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 다른 카드들 복붙해서 수정 -->
+    <div class="card">
+      <a href="https://park-sanggeun.github.io/curriculum-2025/">
+        <img src="images/thumb_2025_교과전형_배치표.png" alt="배치표" />
+        <div class="top11">TOP11</div>
+      </a>
+      <h2>2025 교과전형 배치표</h2>
+      <div class="card-buttons">
+        <div class="btn btn-season">지난 시즌</div>
+        <a href="https://park-sanggeun.github.io/curriculum-2025/">
+          <div class="btn btn-watch">지금 시청하기</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 계속 추가 가능 -->
+  </div>
 </body>
 </html>
