@@ -1,114 +1,152 @@
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>모두의 EDUFLIX 1th</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #141414;
+      color: #fff;
+    }
 
-const resources = [
-  {
-    title: "2022 과목상담기",
-    image: "/images/thumb_2022_과목상담기.png",
-    link: "https://park-sanggeun.github.io/subject/",
-    category: "진학자료"
-  },
-  {
-    title: "2025 교과전형 배치표",
-    image: "/images/thumb_2025_교과전형_배치표.png",
-    link: "https://park-sanggeun.github.io/gpa-compare-2025/",
-    category: "대입자료"
-  },
-  {
-    title: "2026 고등학교 학부모안내서",
-    image: "/images/thumb_2026_고등학교_학부모안내서.png",
-    link: "https://drive.google.com/file/d/1SLywnHop7INLmBuoZNpss69ELGPqcWHj/view?usp=sharing",
-    category: "학부모자료"
-  },
-  {
-    title: "2026 중학교 학부모안내서",
-    image: "/images/thumb_2026_중학교_학부모안내서.png",
-    link: "https://drive.google.com/file/d/1-_4AT8I0FWXaNzoYE7MLyB3X5mZ2hgRt/view?usp=sharing",
-    category: "학부모자료"
-  },
-  {
-    title: "2027 대입정보변경",
-    image: "/images/thumb_2027_대입전형변경.png",
-    link: "https://park-sanggeun.github.io/parents/",
-    category: "대입자료"
-  },
-  {
-    title: "2027 대입정보119",
-    image: "/images/thumb_2027_대입정보119.png",
-    link: "https://drive.google.com/file/d/1RNX0kzchJIUK8ftmLP__I443MoT5Mr7L/view?usp=sharing",
-    category: "대입자료"
-  },
-  {
-    title: "2028 반영과목/권장과목",
-    image: "/images/thumb_2028_반영과목_권장과목.png",
-    link: "https://drive.google.com/drive/u/0/folders/1TtcwmJYaisr21TAzmnuFKjJWdtE0Rf8B",
-    category: "대입자료"
-  },
-  {
-    title: "수시 3개년 TOWER",
-    image: "/images/thumb_수시3개년_TOWER.png",
-    link: "https://park-sanggeun.github.io/susi-3years-tower/",
-    category: "대입자료"
-  },
-  {
-    title: "시너지 밴드의 서재",
-    image: "/images/thumb_시너지밴드_서재.png",
-    link: "https://park-sanggeun.github.io/books/",
-    category: "탐구자료"
-  },
-  {
-    title: "탐구 참고자료",
-    image: "/images/thumb_탐구참고자료.png",
-    link: "https://sites.google.com/view/sresearch-topic-students/%ED%99%88",
-    category: "탐구자료"
-  },
-  {
-    title: "학부모 QnA 100선",
-    image: "/images/thumb_학부모_QnA100.png",
-    link: "https://drive.google.com/file/d/1NuwW1vxeKL94fR8ISFzvJQtVlpzbaGJh/view?usp=sharing",
-    category: "학부모자료"
-  }
-];
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+    }
 
-const categories = ["전체", "학부모자료", "대입자료", "탐구자료"];
+    h1 {
+      font-size: 2.5em;
+      color: #e50914;
+      margin: 0;
+    }
 
-export default function EduflixApp() {
-  const [filter, setFilter] = useState("전체");
-  const filtered = filter === "전체" ? resources : resources.filter(r => r.category === filter);
+    .subtitle {
+      font-size: 1.2em;
+      margin-top: 5px;
+      font-weight: bold;
+      color: #fff;
+    }
 
-  return (
-    <div className="bg-black min-h-screen text-white px-4 py-6">
-      <h1 className="text-4xl font-bold text-red-600 text-center mb-2">모두의 EDUFLIX 1th</h1>
-      <p className="text-center text-lg font-semibold mb-4">Copyright@All Teachers</p>
-      <p className="text-center text-base mb-8">에듀플릭스와 함께</p>
+    .copyright {
+      font-weight: bold;
+      margin-top: 5px;
+      font-size: 0.95em;
+      color: #999;
+    }
 
-      <div className="flex justify-center gap-2 mb-6 flex-wrap">
-        {categories.map(cat => (
-          <Button key={cat} variant={filter === cat ? "default" : "outline"} onClick={() => setFilter(cat)}>
-            {cat}
-          </Button>
-        ))}
-      </div>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 30px;
+      box-sizing: border-box;
+    }
 
-      <Carousel className="w-full max-w-screen-xl mx-auto">
-        <CarouselContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filtered.map((res, idx) => (
-            <CarouselItem key={idx}>
-              <a href={res.link} target="_blank" rel="noopener noreferrer">
-                <Card className="bg-gray-800 hover:scale-105 transition-transform h-full">
-                  <img src={res.image} alt={res.title} className="w-full h-52 object-contain rounded-t-xl" />
-                  <CardContent className="p-4">
-                    <h2 className="text-white text-base font-semibold text-center">{res.title}</h2>
-                  </CardContent>
-                </Card>
-              </a>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-    </div>
-  );
-}
+    .card {
+      background-color: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-title {
+      padding: 15px;
+      font-size: 1em;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .card-title {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>모두의 EDUFLIX 1th</h1>
+    <div class="subtitle">에듀플릭스와 함께</div>
+    <div class="copyright">Copyright ⓒ All Teachers</div>
+  </header>
+
+  <main class="grid">
+    <a href="https://park-sanggeun.github.io/subject-2022" class="card">
+      <img src="images/thumb_2022_과목상담기.png" alt="2022 과목상담기" />
+      <div class="card-title">2022 과목상담기</div>
+    </a>
+
+    <a href="https://park-sanggeun.github.io/gpa-compare-2025" class="card">
+      <img src="images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표" />
+      <div class="card-title">2025 교과전형 배치표</div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1SLywnHop7INLmBuoZNpss69ELGPqcWHj/view?usp=sharing" class="card">
+      <img src="images/thumb_2026_고등학교_학부모안내서.png" alt="2026 고등학교 학부모안내서" />
+      <div class="card-title">2026 고등학교 학부모안내서</div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1-_4AT8I0FWXaNzoYE7MLyB3X5mZ2hgRt/view?usp=sharing" class="card">
+      <img src="images/thumb_2026_중학교_학부모안내서.png" alt="2026 중학교 학부모안내서" />
+      <div class="card-title">2026 중학교 학부모안내서</div>
+    </a>
+
+    <a href="https://park-sanggeun.github.io/parents/" class="card">
+      <img src="images/thumb_2027_대입전형변경.png" alt="2027 대입전형 변경사항" />
+      <div class="card-title">2027 대입전형 변경사항</div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1RNX0kzchJIUK8ftmLP__I443MoT5Mr7L/view?usp=sharing" class="card">
+      <img src="images/thumb_2027_대입정보119.png" alt="2027 대입정보 119" />
+      <div class="card-title">2027 대입정보 119</div>
+    </a>
+
+    <a href="https://drive.google.com/drive/u/0/folders/1TtcwmJYaisr21TAzmnuFKjJWdtE0Rf8B" class="card">
+      <img src="images/thumb_2028_반영과목_권장과목.png" alt="2028 반영과목 권장과목" />
+      <div class="card-title">2028 반영과목 / 권장과목</div>
+    </a>
+
+    <a href="https://park-sanggeun.github.io/susi-3years-tower/" class="card">
+      <img src="images/thumb_수시3개년_TOWER.png" alt="수시 3개년 비교" />
+      <div class="card-title">수시 3개년 비교</div>
+    </a>
+
+    <a href="https://park-sanggeun.github.io/books/" class="card">
+      <img src="images/thumb_시너지밴드_서재.png" alt="시너지 밴드의 서재" />
+      <div class="card-title">시너지 밴드의 서재</div>
+    </a>
+
+    <a href="https://sites.google.com/view/sresearch-topic-students/%ED%99%88" class="card">
+      <img src="images/thumb_탐구참고자료.png" alt="탐구 참고 자료" />
+      <div class="card-title">탐구 참고 자료</div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1NuwW1vxeKL94fR8ISFzvJQtVlpzbaGJh/view?usp=sharing" class="card">
+      <img src="images/thumb_학부모_QnA100.png" alt="학부모 Q&A 100선" />
+      <div class="card-title">학부모 Q&A 100선</div>
+    </a>
+  </main>
+</body>
+</html>
