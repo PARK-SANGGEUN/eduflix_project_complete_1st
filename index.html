@@ -1,141 +1,114 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>모두의 EDUFLIX</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #141414;
-      font-family: 'Noto Sans KR', sans-serif;
-      color: white;
-    }
-    header {
-      padding: 2rem 1rem;
-      text-align: center;
-      background-color: #000;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      color: #E50914;
-      margin: 0;
-    }
-    header p {
-      font-size: 1rem;
-      color: #aaa;
-    }
-    .section {
-      padding: 1rem 2%;
-    }
-    .section h2 {
-      color: white;
-      border-left: 5px solid #E50914;
-      padding-left: 0.5rem;
-      font-size: 1.4rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background-color: #222;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .card-title {
-      padding: 1rem;
-      font-size: 0.95rem;
-      color: #fff;
-    }
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .section h2 {
-        font-size: 1.2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>모두의 EDUFLIX</h1>
-    <p>진학오리지널스 – 진학자료를 넷플릭스처럼 쉽게</p>
-  </header>
+const resources = [
+  {
+    title: "2022 과목상담기",
+    image: "/images/thumb_2022_과목상담기.png",
+    link: "https://park-sanggeun.github.io/subject/",
+    category: "진학자료"
+  },
+  {
+    title: "2025 교과전형 배치표",
+    image: "/images/thumb_2025_교과전형_배치표.png",
+    link: "https://park-sanggeun.github.io/gpa-compare-2025/",
+    category: "대입자료"
+  },
+  {
+    title: "2026 고등학교 학부모안내서",
+    image: "/images/thumb_2026_고등학교_학부모안내서.png",
+    link: "https://drive.google.com/file/d/1SLywnHop7INLmBuoZNpss69ELGPqcWHj/view?usp=sharing",
+    category: "학부모자료"
+  },
+  {
+    title: "2026 중학교 학부모안내서",
+    image: "/images/thumb_2026_중학교_학부모안내서.png",
+    link: "https://drive.google.com/file/d/1-_4AT8I0FWXaNzoYE7MLyB3X5mZ2hgRt/view?usp=sharing",
+    category: "학부모자료"
+  },
+  {
+    title: "2027 대입정보변경",
+    image: "/images/thumb_2027_대입전형변경.png",
+    link: "https://park-sanggeun.github.io/parents/",
+    category: "대입자료"
+  },
+  {
+    title: "2027 대입정보119",
+    image: "/images/thumb_2027_대입정보119.png",
+    link: "https://drive.google.com/file/d/1RNX0kzchJIUK8ftmLP__I443MoT5Mr7L/view?usp=sharing",
+    category: "대입자료"
+  },
+  {
+    title: "2028 반영과목/권장과목",
+    image: "/images/thumb_2028_반영과목_권장과목.png",
+    link: "https://drive.google.com/drive/u/0/folders/1TtcwmJYaisr21TAzmnuFKjJWdtE0Rf8B",
+    category: "대입자료"
+  },
+  {
+    title: "수시 3개년 TOWER",
+    image: "/images/thumb_수시3개년_TOWER.png",
+    link: "https://park-sanggeun.github.io/susi-3years-tower/",
+    category: "대입자료"
+  },
+  {
+    title: "시너지 밴드의 서재",
+    image: "/images/thumb_시너지밴드_서재.png",
+    link: "https://park-sanggeun.github.io/books/",
+    category: "탐구자료"
+  },
+  {
+    title: "탐구 참고자료",
+    image: "/images/thumb_탐구참고자료.png",
+    link: "https://sites.google.com/view/sresearch-topic-students/%ED%99%88",
+    category: "탐구자료"
+  },
+  {
+    title: "학부모 QnA 100선",
+    image: "/images/thumb_학부모_QnA100.png",
+    link: "https://drive.google.com/file/d/1NuwW1vxeKL94fR8ISFzvJQtVlpzbaGJh/view?usp=sharing",
+    category: "학부모자료"
+  }
+];
 
-  <div class="section">
-    <h2>🎓 진학 자료 라이브러리</h2>
-    <div class="grid">
+const categories = ["전체", "학부모자료", "대입자료", "탐구자료"];
 
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2022_과목상담기.png" alt="2022 과목상담기">
-        <div class="card-title">2022 과목상담기</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표">
-        <div class="card-title">2025 교과전형 배치표</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2026_고등학교_학부모안내서.png" alt="2026 고등학교 학부모안내서">
-        <div class="card-title">2026 고등학교 학부모안내서</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2026_중학교_학부모안내서.png" alt="2026 중학교 학부모안내서">
-        <div class="card-title">2026 중학교 학부모안내서</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2027_대입전형변경.png" alt="2027 대입전형변경">
-        <div class="card-title">2027 대입전형변경</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2027_대입정보119.png" alt="2027 대입정보119">
-        <div class="card-title">2027 대입정보119</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_2028_반영과목_권장과목.png" alt="2028 반영과목 권장과목">
-        <div class="card-title">2028 반영과목 권장과목</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_수시3개년_TOWER.png" alt="수시3개년 TOWER">
-        <div class="card-title">수시3개년 TOWER</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_시너지밴드_서재.png" alt="시너지밴드 서재">
-        <div class="card-title">시너지밴드 서재</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_탐구참고자료.png" alt="탐구참고자료">
-        <div class="card-title">탐구참고자료</div>
-      </a>
-    
-      <a class="card" href="#" target="_blank">
-        <img src="images/thumb_학부모_QnA100.png" alt="학부모 QnA100">
-        <div class="card-title">학부모 QnA100</div>
-      </a>
-    
+export default function EduflixApp() {
+  const [filter, setFilter] = useState("전체");
+  const filtered = filter === "전체" ? resources : resources.filter(r => r.category === filter);
+
+  return (
+    <div className="bg-black min-h-screen text-white px-4 py-6">
+      <h1 className="text-4xl font-bold text-red-600 text-center mb-2">모두의 EDUFLIX 1th</h1>
+      <p className="text-center text-lg font-semibold mb-4">Copyright@All Teachers</p>
+      <p className="text-center text-base mb-8">에듀플릭스와 함께</p>
+
+      <div className="flex justify-center gap-2 mb-6 flex-wrap">
+        {categories.map(cat => (
+          <Button key={cat} variant={filter === cat ? "default" : "outline"} onClick={() => setFilter(cat)}>
+            {cat}
+          </Button>
+        ))}
+      </div>
+
+      <Carousel className="w-full max-w-screen-xl mx-auto">
+        <CarouselContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filtered.map((res, idx) => (
+            <CarouselItem key={idx}>
+              <a href={res.link} target="_blank" rel="noopener noreferrer">
+                <Card className="bg-gray-800 hover:scale-105 transition-transform h-full">
+                  <img src={res.image} alt={res.title} className="w-full h-52 object-contain rounded-t-xl" />
+                  <CardContent className="p-4">
+                    <h2 className="text-white text-base font-semibold text-center">{res.title}</h2>
+                  </CardContent>
+                </Card>
+              </a>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </div>
-  </div>
-</body>
-</html>
+  );
+}
