@@ -3,197 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>모두의 EDUFLIX 1th</title>
+  <title>모두의 EDUFLIX</title>
   <style>
     body {
       margin: 0;
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #141414;
+      background-color: #111;
       color: #fff;
     }
-
     header {
       text-align: center;
-      padding: 30px 20px 10px;
+      padding: 2rem 1rem 0.5rem 1rem;
     }
-
-    h1 {
-      font-size: 2.5em;
+    header h1 {
       color: #e50914;
-      margin: 0;
+      font-size: 2.5rem;
+      margin-bottom: 0.2rem;
     }
-
-    .subtitle {
-      font-size: 1.4em;
-      margin-top: 5px;
-      font-weight: bold;
+    header h2 {
       color: #fff;
+      font-size: 1.2rem;
+      margin: 0.2rem 0;
     }
-
-    .copyright {
-      font-weight: bold;
-      margin-top: 5px;
-      font-size: 0.95em;
+    header h3 {
       color: #999;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
     }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px 30px;
-      box-sizing: border-box;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
     .card {
       background-color: #222;
       border-radius: 8px;
       overflow: hidden;
-      transition: transform 0.3s ease;
-      cursor: pointer;
       position: relative;
+      text-align: center;
+      transition: transform 0.3s;
     }
-
     .card:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
-
     .card img {
       width: 100%;
       height: auto;
       display: block;
     }
-
     .card-title {
-      padding: 10px;
-      font-size: 1em;
-      text-align: center;
+      padding: 0.7rem;
+      font-size: 1rem;
     }
-
-    .top-badge {
+    .badge-top {
       position: absolute;
       top: 8px;
       right: 8px;
       background-color: red;
       color: white;
-      padding: 2px 6px;
-      font-size: 0.75em;
+      padding: 3px 6px;
+      font-size: 0.75rem;
+      font-weight: bold;
       border-radius: 4px;
-      font-weight: bold;
     }
-
-    .footer-label {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #e50914;
-      color: #fff;
-      padding: 4px 10px;
-      font-size: 0.75em;
+    .badge-bottom {
+      margin-top: 0.3rem;
+      display: inline-block;
+      background-color: red;
+      color: white;
+      padding: 3px 8px;
+      font-size: 0.75rem;
       font-weight: bold;
-      border-radius: 4px 4px 0 0;
+      border-radius: 4px;
     }
-
     a {
       text-decoration: none;
-      color: white;
-    }
-
-    @media (max-width: 500px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      .card-title {
-        font-size: 0.9em;
-      }
+      color: inherit;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>모두의 EDUFLIX 1th</h1>
-    <div class="subtitle">에듀플릭스 오리지널</div>
-    <div class="copyright">Copyright ⓒ All Teachers</div>
+    <h2>에듀플릭스 오리지널</h2>
+    <h3>Copyright © All Teachers</h3>
   </header>
-
   <main class="grid">
-    <a href="https://course-advisor-p3412.replit.app/" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2022_과목상담기.png" alt="2022 과목상담기" />
+    <a class="card" href="https://course-advisor-p3412.replit.app/" target="_blank">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2022_과목상담기.png" alt="2022 과목상담기" />
       <div class="card-title">2022 과목상담기</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://park-sanggeun.github.io/gpa-compare-2025" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표" />
       <div class="card-title">2025 교과전형 배치표</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://drive.google.com/file/d/1SLywnHop7INLmBuoZNpss69ELGPqcWHj/view?usp=sharing" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2026_고등학교_학부모안내서.png" alt="2026 고등학교 학부모안내서" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2026_고등학교_학부모안내서.png" alt="2026 고등학교 학부모안내서" />
       <div class="card-title">2026 고등학교 학부모안내서</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://drive.google.com/file/d/1-_4AT8I0FWXaNzoYE7MLyB3X5mZ2hgRt/view?usp=sharing" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2026_중학교_학부모안내서.png" alt="2026 중학교 학부모안내서" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2026_중학교_학부모안내서.png" alt="2026 중학교 학부모안내서" />
       <div class="card-title">2026 중학교 학부모안내서</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://park-sanggeun.github.io/parents/" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2027_대입전형변경.png" alt="2027 대입전형 변경사항" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2027_대입전형변경.png" alt="2027 대입전형 변경사항" />
       <div class="card-title">2027 대입전형 변경사항</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://drive.google.com/file/d/1RNX0kzchJIUK8ftmLP__I443MoT5Mr7L/view?usp=sharing" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2027_대입정보119.png" alt="2027 대입정보 119" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2027_대입정보119.png" alt="2027 대입정보 119" />
       <div class="card-title">2027 대입정보 119</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://drive.google.com/drive/u/0/folders/1TtcwmJYaisr21TAzmnuFKjJWdtE0Rf8B" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_2028_반영과목_권장과목.png" alt="2028 반영과목 권장과목" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_2028_반영과목_권장과목.png" alt="2028 반영과목 / 권장과목" />
       <div class="card-title">2028 반영과목 / 권장과목</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
-
-    <a href="https://park-sanggeun.github.io/susi-3years-tower/" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_수시3개년_TOWER.png" alt="수시 3개년 비교" />
+    <a class="card" href="#">
+      <span class="badge-top">TOP11</span>
+      <img src="/images/thumb_수시3개년_TOWER.png" alt="수시 3개년 비교" />
       <div class="card-title">수시 3개년 비교</div>
-      <div class="footer-label">지난 시즌</div>
-    </a>
-
-    <a href="https://park-sanggeun.github.io/books/" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_시너지밴드_서재.png" alt="시너지 밴드의 서재" />
-      <div class="card-title">시너지 밴드의 서재</div>
-      <div class="footer-label">지난 시즌</div>
-    </a>
-
-    <a href="https://sites.google.com/view/sresearch-topic-students/%ED%99%88" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_탐구참고자료.png" alt="탐구 참고 자료" />
-      <div class="card-title">탐구 참고 자료</div>
-      <div class="footer-label">지난 시즌</div>
-    </a>
-
-    <a href="https://drive.google.com/file/d/1NuwW1vxeKL94fR8ISFzvJQtVlpzbaGJh/view?usp=sharing" class="card">
-      <div class="top-badge">TOP11</div>
-      <img src="images/thumb_학부모_QnA100.png" alt="학부모 Q&A 100선" />
-      <div class="card-title">학부모 Q&A 100선</div>
-      <div class="footer-label">지난 시즌</div>
+      <div class="badge-bottom">지난 시즌</div>
     </a>
   </main>
 </body>
