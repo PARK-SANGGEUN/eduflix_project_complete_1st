@@ -24,7 +24,7 @@
     }
 
     .subtitle {
-      font-size: 1.2em;
+      font-size: 1.4em;
       margin-top: 5px;
       font-weight: bold;
       color: #fff;
@@ -37,11 +37,18 @@
       color: #999;
     }
 
+    .section-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 40px 30px 10px;
+      color: #e50914;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 40px 30px;
+      padding: 20px 30px 40px;
       box-sizing: border-box;
     }
 
@@ -51,6 +58,7 @@
       overflow: hidden;
       transition: transform 0.3s ease;
       cursor: pointer;
+      position: relative;
     }
 
     .card:hover {
@@ -64,9 +72,28 @@
     }
 
     .card-title {
-      padding: 15px;
+      padding: 10px;
       font-size: 1em;
       text-align: center;
+    }
+
+    .top-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-color: red;
+      color: white;
+      padding: 2px 6px;
+      font-size: 0.75em;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .footer-label {
+      text-align: center;
+      font-size: 0.85em;
+      color: #aaa;
+      margin-top: -5px;
     }
 
     a {
@@ -88,19 +115,24 @@
 <body>
   <header>
     <h1>모두의 EDUFLIX 1th</h1>
-    <div class="subtitle">에듀플릭스와 함께</div>
+    <div class="subtitle">에듀플릭스 오리지널</div>
     <div class="copyright">Copyright ⓒ All Teachers</div>
   </header>
 
+  <div class="section-title">TOP 11</div>
   <main class="grid">
-    <a href="https://park-sanggeun.github.io/subject-2022" class="card">
+    <a href="https://course-advisor-p3412.replit.app/" class="card">
+      <div class="top-badge">TOP</div>
       <img src="images/thumb_2022_과목상담기.png" alt="2022 과목상담기" />
       <div class="card-title">2022 과목상담기</div>
+      <div class="footer-label">지난 시즌</div>
     </a>
 
     <a href="https://park-sanggeun.github.io/gpa-compare-2025" class="card">
+      <div class="top-badge">TOP</div>
       <img src="images/thumb_2025_교과전형_배치표.png" alt="2025 교과전형 배치표" />
       <div class="card-title">2025 교과전형 배치표</div>
+      <div class="footer-label">지난 시즌</div>
     </a>
 
     <a href="https://drive.google.com/file/d/1SLywnHop7INLmBuoZNpss69ELGPqcWHj/view?usp=sharing" class="card">
